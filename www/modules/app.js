@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','classModule'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,8 +22,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: 'modules/basic/templates/menu.html',
-    controller: 'AppCtrl'
+    templateUrl: 'modules/logged/logged.html',
+    controller: 'loggedCtrl'
   })
 
   .state('app.search', {
@@ -43,12 +43,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.classRecent', {
+      url: '/classRecent',
       views: {
         'menuContent': {
-          templateUrl: 'modules/basic/templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'modules/class/recent.html',
+          controller: 'recentCtrl'
         }
       }
     })
@@ -63,5 +63,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/classRecent');
 });
