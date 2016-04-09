@@ -26,6 +26,10 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule'])
     controller: 'loggedCtrl'
   })
 
+
+
+
+
   .state('logged.search', {
     url: '/search',
     views: {
@@ -43,16 +47,42 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule'])
         }
       }
     })
-    .state('logged.classRecent', {
-      url: '/classRecent',
+    .state('logged.class', {
+      url: '/class',
       views: {
         'menuContent': {
-          templateUrl: 'modules/class/recent.html',
-          controller: 'recentCtrl'
+          templateUrl: 'modules/class/templates/class.html',
+          controller: 'classCtrl'
         }
       }
     })
-
+    .state('logged.class.recent', {
+      url: '/recentActivity',
+      views: {
+        'logged-class-recent': {
+          templateUrl: 'modules/class/templates/recentActivity.html',
+          controller: 'recentActivityCtrl'
+        }
+      }
+    })
+    .state('logged.class.news', {
+      url: '/news',
+      views: {
+        'logged-class-news': {
+          templateUrl: 'modules/class/templates/news.html',
+          controller: 'newsCtrl'
+        }
+      }
+    })
+    .state('logged.class.media', {
+      url: '/media',
+      views: {
+        'logged-class-media': {
+          templateUrl: 'modules/class/templates/media.html',
+          controller: 'mediaCtrl'
+        }
+      }
+    })
   .state('logged.single', {
     url: '/playlists/:playlistId',
     views: {
@@ -63,5 +93,5 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/logged/classRecent');
+  $urlRouterProvider.otherwise('/logged/class');
 });

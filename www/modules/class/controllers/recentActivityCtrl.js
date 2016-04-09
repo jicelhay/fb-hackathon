@@ -1,9 +1,13 @@
 /**
  * Created by Juanito on 09-04-2016.
  */
-var classModule = angular.module('classModule',[]);
+/**
+ * Created by Juanito on 09-04-2016.
+ */
+var classModule = angular.module('classModule');
 
-classModule.controller('recentCtrl', ['$scope', function($scope) {
+classModule.controller('recentActivityCtrl', ['$scope', function($scope) {
+
   $scope.cards = [{
     title: 'Reunión Apoderados' ,
     body: 'Se les informa que la reunión del Miercoles se atrasará una hora'

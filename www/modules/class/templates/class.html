@@ -12,25 +12,26 @@
   <ion-tab
     title="Reciente"
     icon="my-icon"
-    href="#/tab/tab-link"
-    on-select="onTabSelected()"
-    on-deselect="onTabDeselected()">
+    href="#/logged/class/recentActivity">
+    <ion-nav-view name="logged-class-recent"></ion-nav-view>
   </ion-tab>
 
   <ion-tab
     title="Avisos"
     icon="my-icon"
-    href="#/tab/tab-link"
     on-select="onTabSelected()"
-    on-deselect="onTabDeselected()">
+    on-deselect="onTabDeselected()"
+    href="#/logged/class/news">
+    <ion-nav-view name="logged-class-news"></ion-nav-view>
   </ion-tab>
 
   <ion-tab
     title="Multimedia"
     icon="my-icon"
-    href="#/tab/tab-link"
     on-select="onTabSelected()"
-    on-deselect="onTabDeselected()">
+    on-deselect="onTabDeselected()"
+    href="#/logged/class/media">
+    <ion-nav-view name="logged-class-media"></ion-nav-view>
   </ion-tab>
 
 </ion-tabs>
