@@ -5,18 +5,29 @@
 
   <ion-side-menu side="left">
     <ion-content>
+
+      <div class = "item item-avatar-left">
+        <img src="{{picture}}">
+        <h2>{{name}}</h2>
+        <p>{{rol}}</p>
+      </div>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
+        <div class="item item-divider">
+          Mis Cursos
+        </div>
+        <div ng-repeat="class in classes">
+          <ion-item menu-close ng-click="goToClass(class.id)">
+            {{class.name}}
+          </ion-item>
+        </div>
+        <div class="item item-divider">
+          Opciones
+        </div>
+          <ion-item menu-close ng-click="goToConfig()">
+            Configuración
+          </ion-item>
+        <ion-item menu-close ng-click="LogOut()">
+          Salir
         </ion-item>
       </ion-list>
     </ion-content>

@@ -4,12 +4,13 @@
 var classModule = angular.module('starter.controllers',[]);
 
 classModule.controller('loggedCtrl', ['$scope', '$ionicModal', '$timeout', function($scope, $ionicModal, $timeout) {
-// With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+
+
+  $scope.picture = "img/ionic.png";
+  $scope.name = 'John Snow';
+  $scope.rol = 'Apoderado';
+  $scope.classes = [{name: '1°C' }, {name: '4°B' }, {name: 'II°A' }];
+
 
   // Form data for the login modal
   $scope.loginData = {};
