@@ -5,17 +5,12 @@ var classModule = angular.module('classModule');
 
 classModule.controller('classCtrl', ['$scope', '$stateParams','classService', function($scope,$stateParams,classService) {
 
-  console.log('llegue aca');
+  classService.setGeneral();
 
   $scope.$on('reloadClass',function(){
-    console.log('');
+    console.log('evento');
     classService.setGeneral();
   });
-
-  $scope.classId = $stateParams.classId ? $stateParams.classId : '4x';
-  console.log($scope.classId);
-
-
 
 
 

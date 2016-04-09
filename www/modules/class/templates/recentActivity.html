@@ -2,10 +2,10 @@
   <ion-content>
 
     <div ng-if="!dataReady">
-    <ion-spinner icon="spiral">
+    <ion-spinner style="margin-left:200px;" icon="spiral">
       </ion-spinner>
     </div>
-{{dataReady}}
+
     <div ng-if="dataReady">
     <div ng-repeat="card in cards">
 

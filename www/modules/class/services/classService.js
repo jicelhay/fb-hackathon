@@ -13,12 +13,10 @@ classModule.factory('classService',['$timeout', '$q' , function($timeout, $q) {
   var id;
 
   var recentPromise,mediaPromise,newsPromise;
-  recentPromise = $q.defer();
-  mediaPromise = $q.defer();
-  newsPromise = $q.defer();
   var cards;
 
   function setCards(id){
+    console.log(id);
    return [{
       title: 'Reunión Apoderados del curso '+ id ,
       body: 'Se les informa que la reunión del Miercoles se atrasará una hora'
@@ -35,16 +33,18 @@ classModule.factory('classService',['$timeout', '$q' , function($timeout, $q) {
   service = {
     setId: function(id){
       this.id = id;
-      console.log(id);
     },
+
     setGeneral: function(){
-      cards = setCards(id);
-      console.log(cards);
+      recentPromise = $q.defer();
+      mediaPromise = $q.defer();
+      newsPromise = $q.defer();
+      cards = setCards(this.id);
      $timeout(function(){
         recentPromise.resolve(cards);
         mediaPromise.resolve(cards);
         newsPromise.resolve(cards);
-      },1000);
+      },400);
     },
     getRecent:function(){
       return recentPromise.promise;
@@ -53,7 +53,7 @@ classModule.factory('classService',['$timeout', '$q' , function($timeout, $q) {
       return mediaPromise;
     },
     getNews:function(){
-    return newsPromise;
+    return newsPromise.promise;
   }
   };
 

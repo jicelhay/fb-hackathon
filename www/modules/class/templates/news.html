@@ -1,7 +1,26 @@
 <ion-view view-title="Activity">
   <ion-content>
-    <h1> CHAO </h1>
 
+    <div ng-if="!dataReady">
+      <ion-spinner style="margin-left:200px;" icon="spiral">
+      </ion-spinner>
+    </div>
+
+    <div ng-if="dataReady">
+      <div ng-repeat="card in cards">
+
+        <div class="card">
+          <div class="item item-divider">
+            {{card.title}}
+          </div>
+          <div class="item item-text-wrap">
+            {{card.body}}
+          </div>
+
+        </div>
+
+      </div>
+    </div>
 
   </ion-content>
 </ion-view>

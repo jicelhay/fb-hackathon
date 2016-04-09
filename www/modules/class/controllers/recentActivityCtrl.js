@@ -15,4 +15,12 @@ classModule.controller('recentActivityCtrl', ['$scope', 'classService', function
       $scope.cards = data;
     });
 
+  $scope.$on('reloadClass',function(){
+    $scope.dataReady = false;
+    classService.getRecent()
+      .then(function(data){
+        $scope.dataReady = true;
+        $scope.cards = data;
+      });
+  });
 }]);

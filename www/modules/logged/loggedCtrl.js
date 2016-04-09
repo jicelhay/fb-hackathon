@@ -14,7 +14,6 @@ classModule.controller('loggedCtrl', ['$scope', '$state','classService','$ionicH
 
   $scope.goToClass = function(classId){
     classService.setId(classId);
-    console.log()
     $scope.$broadcast('reloadClass');
     $state.go('logged.class');
   };

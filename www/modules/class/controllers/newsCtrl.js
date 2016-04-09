@@ -11,6 +11,19 @@ var classModule = angular.module('classModule');
 
 classModule.controller('newsCtrl', ['$scope','classService', function($scope,classService) {
 
-  console.log('me cargue');
-  $scope.cards = classService.getNews();
+  $scope.dataReady = false;
+  classService.getNews()
+    .then(function(data){
+      $scope.dataReady = true;
+      $scope.cards = data;
+    });
+
+  $scope.$on('reloadClass',function(){
+    $scope.dataReady = false;
+    classService.getNews()
+      .then(function(data){
+        $scope.dataReady = true;
+        $scope.cards = data;
+      });
+  });
 }]);
