@@ -9,14 +9,8 @@
  */
 var classModule = angular.module('classModule');
 
-classModule.controller('newsCtrl', ['$scope', function($scope) {
+classModule.controller('newsCtrl', ['$scope','classService', function($scope,classService) {
 
   console.log('me cargue');
-  $scope.cards = [{
-    title: 'Reunión Apoderados' ,
-    body: 'Se les informa que la reunión del Miercoles se atrasará una hora'
-  },{
-    title: 'Paseo de curso' ,
-    body: 'Recuerden que los alumnos deben llevar colación al paseo del Viernes'
-  }];
+  $scope.cards = classService.getNews();
 }]);

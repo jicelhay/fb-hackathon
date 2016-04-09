@@ -1,18 +1,22 @@
 /**
  * Created by Juanito on 09-04-2016.
  */
-var classModule = angular.module('classModule',[]);
+var classModule = angular.module('classModule');
 
-classModule.controller('classCtrl', ['$scope', function($scope) {
-  $scope.cards = [{
-    title: 'Reunión Apoderados' ,
-    body: 'Se les informa que la reunión del Miercoles se atrasará una hora'
-  },{
-    title: 'Paseo de curso' ,
-    body: 'Recuerden que los alumnos deben llevar colación al paseo del Viernes'
-  },
-    {
-      title: 'Paseo ' ,
-      body: 'Recuerden que los alumnos deben llevar colación al paseo del Viernes'
-    }];
+classModule.controller('classCtrl', ['$scope', '$stateParams','classService', function($scope,$stateParams,classService) {
+
+  console.log('llegue aca');
+
+  $scope.$on('reloadClass',function(){
+    console.log('');
+    classService.setGeneral();
+  });
+
+  $scope.classId = $stateParams.classId ? $stateParams.classId : '4x';
+  console.log($scope.classId);
+
+
+
+
+
 }]);

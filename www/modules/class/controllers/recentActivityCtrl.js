@@ -6,13 +6,13 @@
  */
 var classModule = angular.module('classModule');
 
-classModule.controller('recentActivityCtrl', ['$scope', function($scope) {
+classModule.controller('recentActivityCtrl', ['$scope', 'classService', function($scope,classService) {
 
-  $scope.cards = [{
-    title: 'Reunión Apoderados' ,
-    body: 'Se les informa que la reunión del Miercoles se atrasará una hora'
-  },{
-    title: 'Paseo de curso' ,
-    body: 'Recuerden que los alumnos deben llevar colación al paseo del Viernes'
-  }];
+  $scope.dataReady = false;
+  classService.getRecent()
+    .then(function(data){
+      $scope.dataReady = true;
+      $scope.cards = data;
+    });
+
 }]);
