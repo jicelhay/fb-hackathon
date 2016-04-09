@@ -1,5 +1,5 @@
 
-<ion-view view-title="Playlists">
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +7,33 @@
     <title>Actividad Reciente</title>
 </head>
 <body>
-<ion-content>
-<div ng-repeat="card in cards">
-<div class="card">
-  <div class="item item-divider">
-   {{card.title}}
-  </div>
-  <div class="item item-text-wrap">
-    {{card.body}}
-  </div>
-</div>
-</div>
-</ion-content>
+<ion-tabs class="tabs-positive tabs-icon-top">
+
+  <ion-tab
+    title="Reciente"
+    icon="my-icon"
+    href="#/tab/tab-link"
+    on-select="onTabSelected()"
+    on-deselect="onTabDeselected()">
+  </ion-tab>
+
+  <ion-tab
+    title="Avisos"
+    icon="my-icon"
+    href="#/tab/tab-link"
+    on-select="onTabSelected()"
+    on-deselect="onTabDeselected()">
+  </ion-tab>
+
+  <ion-tab
+    title="Multimedia"
+    icon="my-icon"
+    href="#/tab/tab-link"
+    on-select="onTabSelected()"
+    on-deselect="onTabDeselected()">
+  </ion-tab>
+
+</ion-tabs>
 </body>
 </html>
-  </ion-view>
+

@@ -19,14 +19,14 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
-    url: '/app',
+    .state('logged', {
+    url: '/logged',
     abstract: true,
     templateUrl: 'modules/logged/logged.html',
     controller: 'loggedCtrl'
   })
 
-  .state('app.search', {
+  .state('logged.search', {
     url: '/search',
     views: {
       'menuContent': {
@@ -35,7 +35,7 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule'])
     }
   })
 
-  .state('app.browse', {
+  .state('logged.browse', {
       url: '/browse',
       views: {
         'menuContent': {
@@ -43,7 +43,7 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule'])
         }
       }
     })
-    .state('app.classRecent', {
+    .state('logged.classRecent', {
       url: '/classRecent',
       views: {
         'menuContent': {
@@ -53,7 +53,7 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule'])
       }
     })
 
-  .state('app.single', {
+  .state('logged.single', {
     url: '/playlists/:playlistId',
     views: {
       'menuContent': {
@@ -63,5 +63,5 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/classRecent');
+  $urlRouterProvider.otherwise('/logged/classRecent');
 });
