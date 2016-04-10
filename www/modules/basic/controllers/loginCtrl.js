@@ -24,6 +24,12 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', function($scope
   if (authData === null) {
     console.log("Not logged in yet");
   } else {
+    var usersRef = new Firebase("https//redatomo.firebaseio.com/users");
+    usersRef.child(authData.uid).set({
+      provider: authData.provider,
+      name: authData.facebook.displayName,
+      type: "apoderado"
+    });
     console.log("Logged in as", authData.uid);
     $state.go('logged.class');
   }
