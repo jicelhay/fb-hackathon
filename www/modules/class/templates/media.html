@@ -1,4 +1,5 @@
-<ion-content ng-controller="mediaCtrl" padding="true">
+<ion-view view-title="Media">
+  <ion-content ng-controller="mediaCtrl" padding="true">
     <button class="button button-full button-assertive" ng-click="takePhoto()">
         Tomar foto
     </button>
@@ -7,4 +8,5 @@
     </button>
     <center>
     <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center"></center>
-</ion-content>
+  </ion-content>
+</ion-view>
