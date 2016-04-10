@@ -36,7 +36,6 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
   } else {
     var usersRef = new Firebase("https//redatomo.firebaseio.com/users");
     usersRef.child(authData.uid).set({
-      provider: authData.provider,
       name: authData.facebook.displayName,
       type: userType
     });
@@ -49,7 +48,7 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
     userData.rol = userType;
     usersRef.child(authData.uid).child("classes").on("child_added", function(snapshot, prevChildKey) {
       var cl = snapshot.val();
-      classesArray.push({name: cl.name, id: cl.id});
+      classesArray.push({name: cl.name, id: snapshot.key()});
     });
     userData.classes = classesArray;
     loggedService.setData(userData);
@@ -58,7 +57,7 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
     $state.go('logged.class');
   }
   $scope.authData = authData; // This will display the user's name in our view
-   $ionicLoading.hide();
+  $ionicLoading.hide();
 
 });
 

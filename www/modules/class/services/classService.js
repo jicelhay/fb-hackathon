@@ -1,9 +1,3 @@
-/**
- * Created by Juanito on 09-04-2016.
- */
-/**
- * Created by Juanito on 09-04-2016.
- */
 var classModule = angular.module('classModule');
 
 classModule.factory('classService',['$timeout', '$q' , function($timeout, $q) {
