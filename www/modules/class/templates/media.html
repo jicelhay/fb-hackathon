@@ -3,6 +3,7 @@
         Holi
     </ion-header-bar>
   <ion-content ng-controller="mediaCtrl" padding="true">
+    <div ng-if="rol === 'profesor'">
     <button class="button button-full button-assertive" ng-click="takePhoto()">
         Tomar foto
     </button>
@@ -11,6 +12,7 @@
     </button>
     <center>
     <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center"></center>
+    </div>
 
 
 
