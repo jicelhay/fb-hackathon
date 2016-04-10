@@ -10,6 +10,8 @@ classModule.controller('loggedCtrl', ['$scope', '$state','classService','loggedS
   $scope.name = loggedService.getName();
   $scope.rol = loggedService.getRol();
   $scope.classes = loggedService.getClasses();
+  $scope.classesLoaded = true;
+
 
   $scope.goToClass = function(classId){
     classService.setId(classId);

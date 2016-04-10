@@ -41,7 +41,9 @@ classModule.factory('classService',['$timeout', '$q' , function($timeout, $q) {
     setId: function(id){
       this.id = id;
     },
-
+    getId: function(){
+      return id;
+    },
     setGeneral: function(){
       recentPromise = $q.defer();
       mediaPromise = $q.defer();

@@ -7,37 +7,45 @@
     <title>Actividad Reciente</title>
 </head>
 <body>
-        <ion-header-bar class="clase">
-        Curso: 1º C
-    </ion-header-bar>
-<ion-tabs class="tabs-positive tabs-icon-top">
+<div ng-if="classes.length>0 && classesLoaded">
+  <ion-header-bar class="clase">
+    Curso: 1º C
+  </ion-header-bar>
+  <ion-tabs class="tabs-positive tabs-icon-top">
 
-  <ion-tab
-    title="Reciente"
-    icon="icon ion-ios-clock"
-    href="#/logged/class/recentActivity">
-    <ion-nav-view name="logged-class-recent"></ion-nav-view>
-  </ion-tab>
+    <ion-tab
+      title="Reciente"
+      icon="icon ion-ios-clock"
+      href="#/logged/class/recentActivity">
+      <ion-nav-view name="logged-class-recent"></ion-nav-view>
+    </ion-tab>
 
-  <ion-tab
-    title="Avisos"
-    icon="icon ion-speakerphone"
-    on-select="onTabSelected()"
-    on-deselect="onTabDeselected()"
-    href="#/logged/class/news">
-    <ion-nav-view name="logged-class-news"></ion-nav-view>
-  </ion-tab>
+    <ion-tab
+      title="Avisos"
+      icon="icon ion-speakerphone"
+      on-select="onTabSelected()"
+      on-deselect="onTabDeselected()"
+      href="#/logged/class/news">
+      <ion-nav-view name="logged-class-news"></ion-nav-view>
+    </ion-tab>
 
-  <ion-tab
-    title="Multimedia"
-    icon="icon ion-images"
-    on-select="onTabSelected()"
-    on-deselect="onTabDeselected()"
-    href="#/logged/class/media">
-    <ion-nav-view name="logged-class-media"></ion-nav-view>
-  </ion-tab>
+    <ion-tab
+      title="Multimedia"
+      icon="icon ion-images"
+      on-select="onTabSelected()"
+      on-deselect="onTabDeselected()"
+      href="#/logged/class/media">
+      <ion-nav-view name="logged-class-media"></ion-nav-view>
+    </ion-tab>
 
-</ion-tabs>
+  </ion-tabs>
+</div>
+
+<div ng-if="!classes.length>0 && classesLoaded">
+
+  <h2> No has inscrito cursos todavia (sadface)</h2>
+</div>
+
 </body>
 </html>
 

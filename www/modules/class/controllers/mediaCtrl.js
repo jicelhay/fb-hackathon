@@ -15,7 +15,20 @@ classModule.controller("mediaCtrl", function ($scope, $cordovaCamera,$ionicModal
     'src' : 'img/ionic.png'
   }, {
     'src' : 'img/ionic.png'
-  }]}];
+  }]},
+    {title: 'Presentación de arte' ,images: [{
+      'src' : 'img/ionic.png'
+    }, {
+      'src' : 'img/ionic.png'
+    }, {
+      'src' : 'img/ionic.png'
+    },{
+      'src' : 'img/ionic.png'
+    }, {
+      'src' : 'img/ionic.png'
+    }, {
+      'src' : 'img/ionic.png'
+    }]}];
 
     $scope.takePhoto = function () {
       var options = {
@@ -31,7 +44,10 @@ classModule.controller("mediaCtrl", function ($scope, $cordovaCamera,$ionicModal
       };
 
       $cordovaCamera.getPicture(options).then(function (imageData) {
-          $scope.imgURI = "data:image/jpeg;base64," + imageData;
+        var album = {};
+        album.title = 'Nueva Captura';
+        album.images.push({src: "data:image/jpeg;base64," + imageData});
+          $scope.albums.push(album);
       }, function (err) {
           // An error occured. Show a message to the user
       });

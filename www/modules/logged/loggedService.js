@@ -12,7 +12,7 @@ classModule.factory('loggedService',['$timeout', '$q' , function($timeout, $q) {
 
   var picture = "img/ionic.png";
   var name = 'John Snow';
-  var rol = 'Apoderado';
+  var rol = 'Profesor';
   var classes = [{name: '1°C',id:'1cx' }, {name: '4°B',id:'4bx'}, {name: 'II°A',id:'iiax' }];
 
    var newClass = {name: 'IV°A',id:'4cx' };
