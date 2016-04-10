@@ -41,4 +41,6 @@
     </platform>
     <plugin name="cordova-plugin-camera" spec="~2.1.1" />
     <plugin name="ionic-plugin-keyboard" spec="~2.0.1" />
+    <plugin name="cordova-plugin-whitelist" spec="https://github.com/apache/cordova-plugin-whitelist.git" />
+    <allow-navigation href="*" />
 </widget>
