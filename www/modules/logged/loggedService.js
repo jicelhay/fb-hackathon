@@ -14,8 +14,9 @@ classModule.factory('loggedService',['$timeout', '$q' , function($timeout, $q) {
   var name = 'John Snow';
   var rol = 'Apoderado';
   var classes = [{name: '1°C',id:'1cx' }, {name: '4°B',id:'4bx'}, {name: 'II°A',id:'iiax' }];
-
-   var newClass = {name: 'IV°A',id:'4cx' };
+  var uid = "";
+  var newClass = {};
+  var ref = new Firebase("https//redatomo.firebaseio.com");
 
   service = {
 
@@ -24,6 +25,7 @@ classModule.factory('loggedService',['$timeout', '$q' , function($timeout, $q) {
       name = userData.name;
       rol = userData.rol;
       classes = userData.classes;
+      uid = userData.uid;
     },
     getName: function(){
       return name;
@@ -44,7 +46,9 @@ classModule.factory('loggedService',['$timeout', '$q' , function($timeout, $q) {
 
       $timeout(function(){
         if (index > -1) {
-          classes.splice(index, 1);
+          console.log("ELIMINADO: "+course.id);
+          ref.child("users").child(uid).child("classes").child(course.id).remove();
+          //classes.splice(index, 1);
         }
         q.resolve(classes);
       },300);
@@ -52,17 +56,22 @@ classModule.factory('loggedService',['$timeout', '$q' , function($timeout, $q) {
       return q.promise;
     },
     checkCode: function(code){
-      console.log(code);
       var q = $q.defer();
       var result;
       $timeout(function(){
-      if(code === '1234'){
-        result = true;
-        classes.push(newClass);
-      }
-      else{
-        result = false;
-      }
+
+      result = false;
+
+      ref.child("class").child(code).once("value", function(data) {
+        if(data.val()){
+          newClass.name = data.val().name;
+          ref.child("users").child(uid).child("classes").child(code).set(newClass);
+          result = true;
+        }
+        else{
+          result = false;
+        }
+      });
         q.resolve(result);
       },300);
       return q.promise;
