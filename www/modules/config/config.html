@@ -1,11 +1,19 @@
 <ion-view view-title="Config">
   <ion-content>
 
-    <ion-list>
       <img src={{picture}}>
-      <ion-item>
+      <h2>{{name}}</h2>
 
-      </ion-item>
+      <ion-list show-delete="shouldShowDelete">
+        <div class="item item-divider">
+          Administrar mis Cursos
+        </div>
+        <div ng-repeat="class in myClasses">
+          <ion-item class="item-icon-right">
+            {{class.name}}
+            <i class="icon ion-ios-telephone-outline" ng-click="deleteClass(class)"></i>
+          </ion-item>
+        </div>
 
     </ion-list>
 

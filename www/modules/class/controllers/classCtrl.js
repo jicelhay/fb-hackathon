@@ -8,7 +8,6 @@ classModule.controller('classCtrl', ['$scope', '$stateParams','classService', fu
   classService.setGeneral();
 
   $scope.$on('reloadClass',function(){
-    console.log('evento');
     classService.setGeneral();
   });
 

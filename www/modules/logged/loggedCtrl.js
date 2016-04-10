@@ -3,13 +3,13 @@
  */
 var classModule = angular.module('starter.controllers',[]);
 
-classModule.controller('loggedCtrl', ['$scope', '$state','classService','$ionicHistory', function($scope, $state, classService, $ionicHistory ) {
+classModule.controller('loggedCtrl', ['$scope', '$state','classService','loggedService', function($scope, $state, classService, loggedService ) {
 
 
-  $scope.picture = "img/ionic.png";
-  $scope.name = 'John Snow';
-  $scope.rol = 'Apoderado';
-  $scope.classes = [{name: '1°C',id:'1cx' }, {name: '4°B',id:'4bx'}, {name: 'II°A',id:'iiax' }];
+  $scope.picture = loggedService.getProfilePic();
+  $scope.name = loggedService.getName();
+  $scope.rol = loggedService.getRol();
+  $scope.classes = loggedService.getClasses();
 
 
   $scope.goToClass = function(classId){
@@ -19,7 +19,6 @@ classModule.controller('loggedCtrl', ['$scope', '$state','classService','$ionicH
   };
 
   $scope.goToConfig = function(){
-    console.log('llegue');
     $state.go('logged.config');
   }
 

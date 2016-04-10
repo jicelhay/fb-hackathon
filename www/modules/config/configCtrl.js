@@ -3,9 +3,27 @@
  */
 var classModule = angular.module('classModule');
 
-classModule.controller('configCtrl', ['$scope','classService', function($scope,$stateParams,classService) {
+classModule.controller('configCtrl', ['$scope','classService','$ionicPopup','loggedService',
+  function($scope,classService,$ionicPopup,loggedService) {
 
-  $scope.picture = "img/ionic.png";
+
+  $scope.myClasses = loggedService.getClasses();
+
+  $scope.deleteClass = function(course) {
+   loggedService.deleteClass(course)
+     .then(function(data){
+       var alertPopup = $ionicPopup.alert({
+         title: 'El curso ha sido eliminado',
+         template: 'Recuerda que puedes solicitar nuevamente este curso'
+       });
+       alertPopup.then(function(res){
+         $scope.myClasses = data;
+       });
+     });
+
+
+  };
+
 
 
 }]);
