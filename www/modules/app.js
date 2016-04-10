@@ -83,15 +83,15 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule'])
         }
       }
     })
-  .state('logged.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'modules/basic/templates/playlist.html',
-        controller: 'PlaylistCtrl'
+    .state('logged.config', {
+      url: '/config',
+      views: {
+        'menuContent': {
+          templateUrl: 'modules/config/config.html',
+          controller: 'configCtrl'
+        }
       }
-    }
-  });
+    });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/logged/class');
 });

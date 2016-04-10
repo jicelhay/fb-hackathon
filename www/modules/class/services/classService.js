@@ -13,11 +13,11 @@ classModule.factory('classService',['$timeout', '$q' , function($timeout, $q) {
   var id;
 
   var recentPromise,mediaPromise,newsPromise;
-  var cards;
+  var recent,news, media;
 
   function setCards(id){
     console.log(id);
-   return [{
+   recent =  [{
       title: 'Reunión Apoderados del curso '+ id ,
       body: 'Se les informa que la reunión del Miercoles se atrasará una hora'
     },{
@@ -28,6 +28,19 @@ classModule.factory('classService',['$timeout', '$q' , function($timeout, $q) {
         title: 'Paseo del curso'+id ,
         body: 'Recuerden que los alumnos deben llevar colación al paseo del Viernes'
       }];
+
+    news =  [{
+      title: 'Reunión Apoderados del curso '+ id ,
+      body: 'Se les informa que la reunión del Miercoles se atrasará una hora'
+    },{
+      title: 'Paseo de curso' ,
+      body: 'Recuerden que los alumnos deben llevar colación al paseo del Viernes'
+    }];
+
+    media =  [{
+      title: 'Reunión Apoderados del curso ' + id,
+      body: 'Se les informa que la reunión del Miercoles se atrasará una hora'
+    }];
   }
 
   service = {
@@ -39,18 +52,18 @@ classModule.factory('classService',['$timeout', '$q' , function($timeout, $q) {
       recentPromise = $q.defer();
       mediaPromise = $q.defer();
       newsPromise = $q.defer();
-      cards = setCards(this.id);
+      setCards(this.id);
      $timeout(function(){
-        recentPromise.resolve(cards);
-        mediaPromise.resolve(cards);
-        newsPromise.resolve(cards);
+        recentPromise.resolve(recent);
+        mediaPromise.resolve(media);
+        newsPromise.resolve(news);
       },400);
     },
     getRecent:function(){
       return recentPromise.promise;
     },
     getMedia:function(){
-      return mediaPromise;
+      return mediaPromise.promise;
     },
     getNews:function(){
     return newsPromise.promise;

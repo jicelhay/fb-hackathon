@@ -18,5 +18,9 @@ classModule.controller('loggedCtrl', ['$scope', '$state','classService','$ionicH
     $state.go('logged.class');
   };
 
+  $scope.goToConfig = function(){
+    console.log('llegue');
+    $state.go('logged.config');
+  }
 
 }]);
