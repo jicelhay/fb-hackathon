@@ -19,6 +19,12 @@ classModule.factory('loggedService',['$timeout', '$q' , function($timeout, $q) {
 
   service = {
 
+    setData: function(userData){
+      picture = userData.picture;
+      name = userData.name;
+      rol = userData.rol;
+      classes = userData.classes;
+    },
     getName: function(){
       return name;
     },

@@ -1,8 +1,9 @@
 var classModule = angular.module('classModule');
 
-classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', function($scope,$state,Auth) {
+classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading', function($scope,$state,Auth, $ionicLoading) {
 
  $scope.doLogin = function() {
+   $ionicLoading.show();
     Auth.$authWithOAuthPopup("facebook").then(function(authData) {
       // User successfully logged in
     }).catch(function(error) {
@@ -28,6 +29,7 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', function($scope
     $state.go('logged.class');
   }
   $scope.authData = authData; // This will display the user's name in our view
+   $ionicLoading.hide();
 
 });
 
