@@ -35,11 +35,21 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
     console.log("Not logged in yet");
   } else {
     var usersRef = new Firebase("https//redatomo.firebaseio.com/users");
-    usersRef.child(authData.uid).set({
+    usersRef.child(authData.uid).update({
       provider: authData.provider,
       name: authData.facebook.displayName,
       type: userType
     });
+
+/* PARA AGREGAR CURSOS MANUALMENTE
+    usersRef.child(authData.uid).child("classes").push().set({
+      name: "1°B",
+      id: "2f3"
+    });
+    usersRef.child(authData.uid).child("classes").push().set({
+      name: "4°A",
+      id: "6ha"
+    });*/
 
     // Setear parametros de usuario
     var userData = {};
