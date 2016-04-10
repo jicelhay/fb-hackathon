@@ -15,6 +15,8 @@ classModule.factory('loggedService',['$timeout', '$q' , function($timeout, $q) {
   var rol = 'Apoderado';
   var classes = [{name: '1°C',id:'1cx' }, {name: '4°B',id:'4bx'}, {name: 'II°A',id:'iiax' }];
 
+  var schoolClasses = [{name: '1°C',id:'1cx' }, {name: '4°B',id:'4bx'}, {name: 'II°A',id:'iiax' }];
+
   service = {
 
     getName: function(){
@@ -40,9 +42,10 @@ classModule.factory('loggedService',['$timeout', '$q' , function($timeout, $q) {
         }
         q.resolve(classes);
       },300);
-      
+
       return q.promise;
     }
+
 
   };
 

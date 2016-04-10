@@ -8,13 +8,14 @@ classModule.controller('configCtrl', ['$scope','classService','$ionicPopup','log
 
 
   $scope.myClasses = loggedService.getClasses();
+    
 
   $scope.deleteClass = function(course) {
    loggedService.deleteClass(course)
      .then(function(data){
        var alertPopup = $ionicPopup.alert({
-         title: 'El curso ha sido eliminado',
-         template: 'Recuerda que puedes solicitar nuevamente este curso'
+         title: 'Curso eliminado!',
+         template: 'Recuerda que puedes solicitar nuevamente utilizando el código.'
        });
        alertPopup.then(function(res){
          $scope.myClasses = data;

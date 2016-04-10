@@ -11,6 +11,16 @@
         <div ng-repeat="class in myClasses">
           <ion-item class="item-icon-right">
             {{class.name}}
+            <i class="icon ion-ios-close-outline" ng-click="deleteClass(class)"></i>
+          </ion-item>
+        </div>
+
+        <div class="item item-divider">
+          Unirse a nuevos cursos
+        </div>
+        <div ng-repeat="class in schoolClasses">
+          <ion-item class="item-icon-right">
+            {{class.name}}
             <i class="icon ion-ios-telephone-outline" ng-click="deleteClass(class)"></i>
           </ion-item>
         </div>
