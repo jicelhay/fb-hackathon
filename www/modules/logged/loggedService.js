@@ -15,7 +15,7 @@ classModule.factory('loggedService',['$timeout', '$q' , function($timeout, $q) {
   var rol = 'Apoderado';
   var classes = [{name: '1°C',id:'1cx' }, {name: '4°B',id:'4bx'}, {name: 'II°A',id:'iiax' }];
 
-  var schoolClasses = [{name: '1°C',id:'1cx' }, {name: '4°B',id:'4bx'}, {name: 'II°A',id:'iiax' }];
+   var newClass = {name: 'IV°A',id:'4cx' };
 
   service = {
 
@@ -43,6 +43,22 @@ classModule.factory('loggedService',['$timeout', '$q' , function($timeout, $q) {
         q.resolve(classes);
       },300);
 
+      return q.promise;
+    },
+    checkCode: function(code){
+      console.log(code);
+      var q = $q.defer();
+      var result;
+      $timeout(function(){
+      if(code === '1234'){
+        result = true;
+        classes.push(newClass);
+      }
+      else{
+        result = false;
+      }
+        q.resolve(result);
+      },300);
       return q.promise;
     }
 

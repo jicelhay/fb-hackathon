@@ -11,7 +11,6 @@ classModule.controller('loggedCtrl', ['$scope', '$state','classService','loggedS
   $scope.rol = loggedService.getRol();
   $scope.classes = loggedService.getClasses();
 
-
   $scope.goToClass = function(classId){
     classService.setId(classId);
     $scope.$broadcast('reloadClass');

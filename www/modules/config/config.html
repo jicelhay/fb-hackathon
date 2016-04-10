@@ -16,14 +16,12 @@
         </div>
 
         <div class="item item-divider">
-          Unirse a nuevos cursos
+          Unirse a nuevo curso
         </div>
-        <div ng-repeat="class in schoolClasses">
-          <ion-item class="item-icon-right">
-            {{class.name}}
-            <i class="icon ion-ios-telephone-outline" ng-click="deleteClass(class)"></i>
-          </ion-item>
-        </div>
+        <ion-item class="item-icon-right">
+          <input ng-model="data.code" placeholder="Ingresa el código de curso">
+          <i class="icon ion-android-checkbox-outline" ng-click="addClass()"></i>
+        </ion-item>
 
     </ion-list>
 
