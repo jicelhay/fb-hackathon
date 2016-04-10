@@ -3,7 +3,7 @@
  */
 var classModule = angular.module('starter.controllers',[]);
 
-classModule.controller('loggedCtrl', ['$scope', '$state','classService','loggedService', function($scope, $state, classService, loggedService ) {
+classModule.controller('loggedCtrl', ['$scope', '$state','classService','loggedService','Auth', function($scope, $state, classService, loggedService, Auth ) {
 
 
   $scope.picture = loggedService.getProfilePic();
@@ -22,6 +22,7 @@ classModule.controller('loggedCtrl', ['$scope', '$state','classService','loggedS
   };
 
   $scope.logOut = function(){
+    Auth.$unauth();
     $state.go('login');
   }
 
