@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<ion-header-bar class="bar-assertive">
+    <h1 class="title">Photos</h1>
+</ion-header-bar>
+<ion-content ng-controller="mediaCtrl" padding="true">
+    <button class="button button-full button-assertive" ng-click="takePhoto()">
+        Take Photo
+    </button>
+    <button class="button button-full button-assertive" ng-click="choosePhoto()">
+        Choose Photo
+    </button>
+    <center>
+    <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center"></center>
+</ion-content>

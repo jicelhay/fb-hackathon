@@ -1,11 +1,46 @@
-/**
- * Created by Juanito on 09-04-2016.
- */
 var classModule = angular.module('classModule');
 
-classModule.controller('mediaCtrl', ['$scope','classService', function($scope,classService) {
+classModule.controller("mediaCtrl", function ($scope, $cordovaCamera) {
 
-  $scope.cards = classService.getMedia();
+                  $scope.takePhoto = function () {
+                    var options = {
+                      quality: 100,
+                      destinationType: Camera.DestinationType.DATA_URL,
+                      sourceType: Camera.PictureSourceType.CAMERA,
+                      allowEdit: true,
+                      encodingType: Camera.EncodingType.JPEG,
+                      targetWidth: 300,
+                      targetHeight: 300,
+                      popoverOptions: CameraPopoverOptions,
+                      saveToPhotoAlbum: false
+                  };
+
+                      $cordovaCamera.getPicture(options).then(function (imageData) {
+                          $scope.imgURI = "data:image/jpeg;base64," + imageData;
+                      }, function (err) {
+                          // An error occured. Show a message to the user
+                      });
+                  }
+
+                  $scope.choosePhoto = function () {
+                    var options = {
+                      quality: 100,
+                      destinationType: Camera.DestinationType.DATA_URL,
+                      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                      allowEdit: true,
+                      encodingType: Camera.EncodingType.JPEG,
+                      targetWidth: 300,
+                      targetHeight: 300,
+                      popoverOptions: CameraPopoverOptions,
+                      saveToPhotoAlbum: false
+                  };
+
+                      $cordovaCamera.getPicture(options).then(function (imageData) {
+                          $scope.imgURI = "data:image/jpeg;base64," + imageData;
+                      }, function (err) {
+                          // An error occured. Show a message to the user
+                      });
+                  }
 
 
-}]);
+              });
