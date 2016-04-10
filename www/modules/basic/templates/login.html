@@ -1,20 +1,25 @@
 <ion-modal-view>
   <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
+
   </ion-header-bar>
   <ion-content>
+    <br>
+    <br>
+    <br>
+
     <form ng-submit="doLogin()">
         <img class="cole" src="images/logo_cole-19.png">
         <h3 class="colegio">Instituto Nacional</h3>
-        <h3 class="profe">Profesores</h3>
-      <div class="list">
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">FACEBOOK LOGIN</button>
-        </label>
-      </div>
+
+
+      <br>
+      <br>
+      <br>
+
+          <button class="button button-block button-positive" type="submit">LOGIN CON FACEBOOK</button>
+
+      <ion-checkbox class="checkbox-royal" style="margin-left: 105px; border-width:0 " ng-model="data.isChecked">Soy Profesor</ion-checkbox>
+
     </form>
   </ion-content>
 </ion-modal-view>
