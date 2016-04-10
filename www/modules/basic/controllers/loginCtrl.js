@@ -26,9 +26,9 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
 
    var userType;
    if ($scope.data.isChecked){
-     userType="profesor"
+     userType="Profesor"
    }else{
-     userType="apoderado"
+     userType="Apoderado"
    }
 
   if (authData === null) {
@@ -50,6 +50,8 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
     usersRef.child(authData.uid).child("classes").on("child_added", function(snapshot, prevChildKey) {
       var cl = snapshot.val();
       classesArray.push({name: cl.name, id: cl.id});
+      console.log(cl);
+      console.log(cl.name);
     });
     userData.classes = classesArray;
     loggedService.setData(userData);
