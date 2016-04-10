@@ -7,11 +7,18 @@
     </div>
 
     <div ng-if="dataReady">
+
+      <div ng-if="true">
+        <button class="button button-full button-assertive" ng-click="writeNew()">
+          Nuevo Aviso
+        </button>
+      </div>
+
       <div ng-repeat="card in cards">
 
         <div class="row">
           <div class="col col-20">
-            <img src="/img/ionic.png">
+            <img src="img/ionic.png">
           </div>
           <div class="col col-80">
 

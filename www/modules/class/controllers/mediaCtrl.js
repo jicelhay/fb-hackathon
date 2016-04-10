@@ -1,6 +1,21 @@
 var classModule = angular.module('classModule');
 
-classModule.controller("mediaCtrl", function ($scope, $cordovaCamera) {
+classModule.controller("mediaCtrl", function ($scope, $cordovaCamera,$ionicModal) {
+
+
+  $scope.allImages = [{
+    'src' : 'img/ionic.png'
+  }, {
+    'src' : 'img/ionic.png'
+  }, {
+    'src' : 'img/ionic.png'
+  },{
+    'src' : 'img/ionic.png'
+  }, {
+    'src' : 'img/ionic.png'
+  }, {
+    'src' : 'img/ionic.png'
+  }];
 
     $scope.takePhoto = function () {
       var options = {
@@ -20,7 +35,7 @@ classModule.controller("mediaCtrl", function ($scope, $cordovaCamera) {
       }, function (err) {
           // An error occured. Show a message to the user
       });
-    }
+    };
 
     $scope.choosePhoto = function () {
       var options = {
@@ -40,7 +55,30 @@ classModule.controller("mediaCtrl", function ($scope, $cordovaCamera) {
         }, function (err) {
             // An error occured. Show a message to the user
         });
-    }
+    };
+
+
+  $scope.showImages = function(index) {
+    $scope.activeSlide = index;
+    $scope.showModal('modules/class/templates/image-popover.html');
+  };
+
+  $scope.showModal = function(templateUrl) {
+    $ionicModal.fromTemplateUrl(templateUrl, {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
+  // Close the modal
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+    $scope.modal.remove()
+  };
+
 
 
 });

@@ -9,7 +9,7 @@
  */
 var classModule = angular.module('classModule');
 
-classModule.controller('newsCtrl', ['$scope','classService', function($scope,classService) {
+classModule.controller('newsCtrl', ['$scope','classService', '$ionicModal', function($scope,classService,$ionicModal) {
 
   $scope.dataReady = false;
   classService.getNews()
@@ -26,4 +26,14 @@ classModule.controller('newsCtrl', ['$scope','classService', function($scope,cla
         $scope.cards = data;
       });
   });
+
+  $scope.writeNew = function(){
+      $ionicModal.fromTemplateUrl(templateUrl, {
+        scope: $scope,
+        animation: 'slide-in-up'
+      }).then(function(modal) {
+        $scope.modal = modal;
+        $scope.modal.show();
+      });
+  }
 }]);
