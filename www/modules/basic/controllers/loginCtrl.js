@@ -3,7 +3,7 @@ var classModule = angular.module('classModule');
 classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', function($scope,$state,Auth) {
 
  $scope.doLogin = function() {
-    Auth.$authWithOAuthRedirect("facebook").then(function(authData) {
+    Auth.$authWithOAuthPopup("facebook").then(function(authData) {
       // User successfully logged in
     }).catch(function(error) {
       if (error.code === "TRANSPORT_UNAVAILABLE") {
