@@ -13,13 +13,13 @@ classModule.controller("mediaCtrl", function ($scope, $cordovaCamera) {
         targetHeight: 300,
         popoverOptions: CameraPopoverOptions,
         saveToPhotoAlbum: false
-    };
+      };
 
-        $cordovaCamera.getPicture(options).then(function (imageData) {
-            $scope.imgURI = "data:image/jpeg;base64," + imageData;
-        }, function (err) {
-            // An error occured. Show a message to the user
-        });
+      $cordovaCamera.getPicture(options).then(function (imageData) {
+          $scope.imgURI = "data:image/jpeg;base64," + imageData;
+      }, function (err) {
+          // An error occured. Show a message to the user
+      });
     }
 
     $scope.choosePhoto = function () {

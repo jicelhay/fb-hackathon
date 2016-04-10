@@ -15,6 +15,12 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule', 'fireba
   });
 })
 
+// Para poder hacer login con autentificacioens de firebase como facebook
+.factory("Auth", function($firebaseAuth) {
+  var usersRef = new Firebase("https//redatomo.firebaseio.com/users");
+  return $firebaseAuth(usersRef);
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
