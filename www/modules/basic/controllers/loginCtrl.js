@@ -59,8 +59,8 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
     userData.uid = authData.uid;
     usersRef.child(authData.uid).child("classes").on("child_added", function(snapshot, prevChildKey) {
       var cl = snapshot.val();
-      classesArray.push({name: cl.name, id: cl.key()});
-      console.log("key: "+ cl.key());
+      classesArray.push({name: cl.name, id: snapshot.key()});
+      console.log("key: "+ snapshot.key());
       console.log("name: "+ cl.name);
     });
     userData.classes = classesArray;
