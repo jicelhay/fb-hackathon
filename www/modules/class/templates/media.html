@@ -19,10 +19,10 @@
 
       <div class="item item-divider">
         <i class="ion-images"></i>
-        {{album.name}}
+        {{album.title}}
       </div>
       <a class="item item-list-detail">
-        <img ng-repeat="image in album.images" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+        <img ng-repeat="image in album.images" ng-src="{{image.src}}" ng-click="showImages($index,album)" class="image-list-thumb"/>
       </a>
 
     </div>
