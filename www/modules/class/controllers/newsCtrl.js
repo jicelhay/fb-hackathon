@@ -28,7 +28,7 @@ classModule.controller('newsCtrl', ['$scope','classService', '$ionicModal', func
   });
 
   $scope.writeNew = function(){
-      $ionicModal.fromTemplateUrl(templateUrl, {
+      $ionicModal.fromTemplateUrl('modules/class/templates/write-new.html', {
         scope: $scope,
         animation: 'slide-in-up'
       }).then(function(modal) {
