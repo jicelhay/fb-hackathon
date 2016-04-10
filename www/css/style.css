@@ -145,3 +145,44 @@ img.cole{
     display: block;
     margin: 0 auto;
 }
+.bar-header {
+    background-color: #EA4444;
+    top: 0;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+}
+
+.platform-android .bar .title {
+    font-size: 19px;
+    color: white;
+    line-height: 44px;
+}
+
+textarea.newpost {
+    width: 100%;
+    border-bottom: 1px solid #EA4444;
+    padding: 15px 0 0 10px;
+    font-size: 16px;
+}
+textarea.newpostbody{
+    width: 100%;
+    height: 60%;
+    padding: 15px 0 0 10px;
+    font-size: 16px;
+}
+
+.button.button-assertive.enviar {
+    border-color: transparent;
+    background-color: #154F89;
+    color: #fff;
+    margin-right: 10px;
+    float: right;
+    font-weight: 600;
+}
+.button.button-assertive.newav {
+    border-color: transparent;
+    background-color: #154F89;
+    color: #fff;
+    float: center;
+    font-weight: 600;
+}

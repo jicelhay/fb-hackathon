@@ -4,11 +4,13 @@
     <button class="button button-icon icon ion-android-close" ng-click="closeModal()"></button>
   </ion-header-bar>
   <ion-content>
-     <textarea placeholder="Título" ng-model="data.title">
+     <textarea placeholder="Título" ng-model="data.title" class="newpost">
       </textarea>
-    <textarea placeholder="Mensaje" ng-model="data.body">
+    <textarea placeholder="Mensaje" ng-model="data.body" class="newpostbody">
       </textarea>
 
-    <button ng-click="sendNew()">ENVIAR</button>
+    <button class="button button-assertive enviar">
+  ENVIAR
+</button>
   </ion-content>
 </ion-modal-view>
