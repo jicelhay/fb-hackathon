@@ -42,11 +42,16 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
     });
 
     // Setear parametros de usuario
-    var userData;
+    var userData = {};
+    var classesArray = [];
     userData.picture = authData.facebook.profileImageURL;
     userData.name = authData.facebook.displayName;
     userData.rol = userType;
-    userData.classes = usersRef.child(authData.uid).child("classes").val();
+    usersRef.child(authData.uid).child("classes").on("child_added", function(snapshot, prevChildKey) {
+      var cl = snapshot.val();
+      classesArray.push({name: cl.name, id: cl.id});
+    });
+    userData.classes = classesArray;
     loggedService.setData(userData);
 
     console.log("Logged in as", authData.uid);
