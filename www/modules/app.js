@@ -18,6 +18,12 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule', 'fireba
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+    .state('login',{
+      url: '/login',
+      templateUrl: 'modules/basic/templates/login.html',
+      controller: 'loginCtrl'
+  })
+
     .state('logged', {
     url: '/logged',
     abstract: true,
@@ -25,31 +31,10 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule', 'fireba
     controller: 'loggedCtrl'
   })
 
-
-
-
-
-  .state('logged.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'modules/basic/templates/search.html'
-      }
-    }
-  })
-
-  .state('logged.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'modules/basic/templates/browse.html'
-        }
-      }
-    })
     .state('logged.class', {
       url: '/class',
       views: {
-        'menuContent': {
+        'content': {
           templateUrl: 'modules/class/templates/class.html',
           controller: 'classCtrl'
         }
@@ -85,12 +70,12 @@ angular.module('starter', ['ionic', 'starter.controllers','classModule', 'fireba
     .state('logged.config', {
       url: '/config',
       views: {
-        'menuContent': {
+        'content': {
           templateUrl: 'modules/config/config.html',
           controller: 'configCtrl'
         }
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/logged/class');
+  $urlRouterProvider.otherwise('/login');
 });
