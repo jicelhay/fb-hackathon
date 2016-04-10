@@ -1,6 +1,6 @@
 var classModule = angular.module('classModule');
 
-classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading', function($scope,$state,Auth, $ionicLoading) {
+classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading', 'loginService', function($scope,$state,Auth, $ionicLoading, loginService) {
 
   $scope.data = {isChecked: false};
 
@@ -40,6 +40,15 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
       name: authData.facebook.displayName,
       type: userType
     });
+
+    // Setear parametros de usuario
+    var userData;
+    userData.picture = authData.facebook.profileImageURL;
+    userData.name = authData.facebook.displayName;
+    userData.rol = userType;
+    userData.classes = usersRef.child(authData.uid).child("classes").val();
+    loginService.setData(userData);
+
     console.log("Logged in as", authData.uid);
     $state.go('logged.class');
   }
