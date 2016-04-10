@@ -10,20 +10,22 @@
     <button class="button button-full button-assertive newav" ng-click="choosePhoto()">
         Elegir foto
     </button>
-    <center>
-    <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center"></center>
+      <br><br>
     </div>
 
 
 
-    <br><br>
-    <div class="item item-divider">
-      <i class="ion-images"></i>
-      Album paseo de curso
+    <div ng-repeat="album in albums">
+
+      <div class="item item-divider">
+        <i class="ion-images"></i>
+        {{album.name}}
+      </div>
+      <a class="item item-list-detail">
+        <img ng-repeat="image in album.images" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+      </a>
+
     </div>
-    <a class="item item-list-detail">
-        <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
-    </a>
 
 
   </ion-content>

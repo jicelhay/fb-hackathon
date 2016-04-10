@@ -3,7 +3,7 @@ var classModule = angular.module('classModule');
 classModule.controller("mediaCtrl", function ($scope, $cordovaCamera,$ionicModal) {
 
 
-  $scope.allImages = [{
+  $scope.albums = {title: 'Paseo de curso' ,images: [{
     'src' : 'img/ionic.png'
   }, {
     'src' : 'img/ionic.png'
@@ -15,7 +15,7 @@ classModule.controller("mediaCtrl", function ($scope, $cordovaCamera,$ionicModal
     'src' : 'img/ionic.png'
   }, {
     'src' : 'img/ionic.png'
-  }];
+  }]};
 
     $scope.takePhoto = function () {
       var options = {
