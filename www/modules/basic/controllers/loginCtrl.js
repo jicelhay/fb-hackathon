@@ -1,6 +1,6 @@
 var classModule = angular.module('classModule');
 
-classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading', 'loginService', function($scope,$state,Auth, $ionicLoading, loginService) {
+classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading', 'loggedService', function($scope,$state,Auth, $ionicLoading, loggedService) {
 
   $scope.data = {isChecked: false};
 
@@ -47,7 +47,7 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
     userData.name = authData.facebook.displayName;
     userData.rol = userType;
     userData.classes = usersRef.child(authData.uid).child("classes").val();
-    loginService.setData(userData);
+    loggedService.setData(userData);
 
     console.log("Logged in as", authData.uid);
     $state.go('logged.class');
