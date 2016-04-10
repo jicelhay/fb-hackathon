@@ -2,6 +2,8 @@ var classModule = angular.module('classModule');
 
 classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', function($scope,$state,Auth) {
 
+  $scope.data = {isChecked: false};
+
  $scope.doLogin = function() {
     Auth.$authWithOAuthPopup("facebook").then(function(authData) {
       // User successfully logged in
@@ -21,6 +23,13 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', function($scope
 
  Auth.$onAuth(function(authData) {
 
+   var userType;
+   if ($scope.data.isChecked){
+     userType="profesor"
+   }else{
+     userType="apoderado"
+   }
+
   if (authData === null) {
     console.log("Not logged in yet");
   } else {
@@ -28,7 +37,7 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', function($scope
     usersRef.child(authData.uid).set({
       provider: authData.provider,
       name: authData.facebook.displayName,
-      type: "apoderado"
+      type: userType
     });
     console.log("Logged in as", authData.uid);
     $state.go('logged.class');
