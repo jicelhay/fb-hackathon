@@ -54,3 +54,11 @@ img.config {
         display: block;
     margin: 0 auto;
 }
+.bar-header.has-tabs-top {
+    display: block;
+    text-align: center;
+    color: white;
+    background-color: #EA4444;
+    border-bottom-width: 0px;
+    background-image: none;
+}
