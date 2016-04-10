@@ -9,9 +9,11 @@
  */
 var classModule = angular.module('classModule');
 
-classModule.controller('newsCtrl', ['$scope','classService', '$ionicModal', function($scope,classService,$ionicModal) {
+classModule.controller('newsCtrl', ['$scope','classService', '$ionicModal','$rootScope', function($scope,classService,$ionicModal,$rootScope) {
 
   $scope.dataReady = false;
+  $scope.data= {title:'',
+  body: ''};
   classService.getNews()
     .then(function(data){
       $scope.dataReady = true;
@@ -35,5 +37,21 @@ classModule.controller('newsCtrl', ['$scope','classService', '$ionicModal', func
         $scope.modal = modal;
         $scope.modal.show();
       });
-  }
+  };
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+    $scope.modal.remove()
+  };
+
+  $scope.sendNew = function(){
+    if($scope.data.title && $scope.data.body){
+      var postedNew = {title: $scope.data.title, body: $scope.data.title};
+      $scope.cards.push(postedNew);
+      $scope.closeModal();
+      $scope.data.title = "";
+      $scope.data.body = "";
+    }
+  };
+
 }]);

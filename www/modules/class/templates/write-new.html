@@ -1,9 +1,14 @@
-<ion-modal-view hide-back-button="false>
+<ion-modal-view>
   <ion-header-bar>
     <h1 class="title">Escribe un nuevo anuncio</h1>
     <button class="button button-icon icon ion-android-close" ng-click="closeModal()"></button>
   </ion-header-bar>
   <ion-content>
-    
+     <textarea placeholder="Título" ng-model="data.title">
+      </textarea>
+    <textarea placeholder="Mensaje" ng-model="data.body">
+      </textarea>
+
+    <button ng-click="sendNew()">ENVIAR</button>
   </ion-content>
 </ion-modal-view>
