@@ -36,7 +36,6 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
   } else {
     var usersRef = new Firebase("https//redatomo.firebaseio.com/users");
     usersRef.child(authData.uid).update({
-      provider: authData.provider,
       name: authData.facebook.displayName,
       type: userType
     });
@@ -57,11 +56,12 @@ classModule.controller('loginCtrl', ['$scope', '$state', 'Auth', '$ionicLoading'
     userData.picture = authData.facebook.profileImageURL;
     userData.name = authData.facebook.displayName;
     userData.rol = userType;
+    userData.uid = authData.uid;
     usersRef.child(authData.uid).child("classes").on("child_added", function(snapshot, prevChildKey) {
       var cl = snapshot.val();
-      classesArray.push({name: cl.name, id: cl.id});
-      console.log(cl);
-      console.log(cl.name);
+      classesArray.push({name: cl.name, id: snapshot.key()});
+      console.log("key: "+ snapshot.key());
+      console.log("name: "+ cl.name);
     });
     userData.classes = classesArray;
     loggedService.setData(userData);

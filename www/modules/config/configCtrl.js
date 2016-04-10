@@ -24,7 +24,6 @@ classModule.controller('configCtrl', ['$scope','classService','$ionicPopup','log
   };
 
     $scope.addClass = function(){
-      console.log('llegue a clase');
       loggedService.checkCode($scope.data.code)
         .then(function(res){
           var alertPopup;
