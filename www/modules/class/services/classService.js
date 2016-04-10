@@ -15,31 +15,25 @@ classModule.factory('classService',['$timeout', '$q' , function($timeout, $q) {
   var recentPromise,mediaPromise,newsPromise;
   var recent,news, media;
 
+  var ref = new Firebase("https://redatomo.firebaseio.com/class");
+
+
   function setCards(id){
     console.log(id);
-   recent =  [{
-      title: 'Reunión Apoderados del curso '+ id ,
-      body: 'Se les informa que la reunión del Miercoles se atrasará una hora'
-    },{
-      title: 'Paseo de curso' ,
-      body: 'Recuerden que los alumnos deben llevar colación al paseo del Viernes'
-    },
-      {
-        title: 'Paseo del curso'+id ,
-        body: 'Recuerden que los alumnos deben llevar colación al paseo del Viernes'
-      }];
+    var classRef = ref.child(id+"/news");
 
-    news =  [{
-      title: 'Reunión Apoderados del curso '+ id ,
-      body: 'Se les informa que la reunión del Miercoles se atrasará una hora'
-    },{
-      title: 'Paseo de curso' ,
-      body: 'Recuerden que los alumnos deben llevar colación al paseo del Viernes'
-    }];
+    recent = [];
+    news = [];
+
+    // Retrieve new posts as they are added to our database
+    classRef.on("child_added", function(snapshot, prevChildKey) {
+      recent.push(snapshot.val());
+      news.push(snapshot.val());
+    });
 
     media =  [{
-      title: 'Reunión Apoderados del curso ' + id,
-      body: 'Se les informa que la reunión del Miercoles se atrasará una hora'
+      title: 'Imagen?',
+      body: 'Esto es una imagen...'
     }];
   }
 
