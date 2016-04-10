@@ -19,6 +19,10 @@ classModule.controller('loggedCtrl', ['$scope', '$state','classService','loggedS
 
   $scope.goToConfig = function(){
     $state.go('logged.config');
+  };
+
+  $scope.logOut = function(){
+    $state.go('login');
   }
 
 }]);

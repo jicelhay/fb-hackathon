@@ -9,12 +9,22 @@
     <div ng-if="dataReady">
       <div ng-repeat="card in cards">
 
-        <div class="card">
-          <div class="item item-divider">
-            {{card.title}}
+        <div class="row">
+          <div class="col col-20">
+            <img src="/img/ionic.png">
           </div>
-          <div class="item item-text-wrap">
-            {{card.body}}
+          <div class="col col-80">
+
+            <div class="card">
+              <div class="item item-divider">
+                {{card.title}}
+              </div>
+              <div class="item item-text-wrap">
+                {{card.body}}
+              </div>
+
+            </div>
+
           </div>
 
         </div>
